@@ -212,10 +212,11 @@ private:
             if (!node.flattenPaths())
                 continue;
 
-            m_children.try_emplace(node.m_name, node);
-            node.m_parent = this;
+            auto& newNodeEntry = m_children.try_emplace(node.m_name, node).first->second;
             it = m_children.erase(it);
-            const auto& name{ it->second.m_name };
+
+            newNodeEntry.m_parent = this;
+            const auto& name{ newNodeEntry.m_name };
 
             // Spectre mitigation
             bool isNewLongest{ name.length() > m_longestChildName.length() };
