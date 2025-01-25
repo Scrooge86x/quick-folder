@@ -36,6 +36,8 @@ public:
         : m_name{ other.m_name }
         , m_children{ other.m_children }
         , m_parent{ nullptr }
+        , m_longestChildName{ other.m_longestChildName }
+        , m_longestChildSize{ other.m_longestChildSize }
     {
         for (auto& [_, node] : m_children) {
             node.m_parent = this;
@@ -46,6 +48,8 @@ public:
         : m_name{ std::move(other.m_name) }
         , m_children{ std::move(other.m_children) }
         , m_parent{ nullptr }
+        , m_longestChildName{ other.m_longestChildName }
+        , m_longestChildSize{ other.m_longestChildSize }
     {
         for (auto& [_, node] : m_children) {
             node.m_parent = this;
@@ -59,6 +63,8 @@ public:
         m_name = other.m_name;
         m_children = other.m_children;
         m_parent = nullptr;
+        m_longestChildName = other.m_longestChildName;
+        m_longestChildSize = other.m_longestChildSize;
 
         for (auto& [_, node] : m_children) {
             node.m_parent = this;
@@ -73,6 +79,8 @@ public:
         m_name = std::move(other.m_name);
         m_children = std::move(other.m_children);
         m_parent = nullptr;
+        m_longestChildName = other.m_longestChildName;
+        m_longestChildSize = other.m_longestChildSize;
 
         for (auto& [_, node] : m_children) {
             node.m_parent = this;
