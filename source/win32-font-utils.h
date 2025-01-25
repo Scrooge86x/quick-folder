@@ -18,7 +18,7 @@ inline ::HFONT createFontFromMemory(void* const fontData, const ::DWORD dataLeng
         .lfHeight{ 24 },
         .lfFaceName{ TEXT("Roboto") }
     };
-    return ::CreateFontIndirectW(&logFont);
+    return ::CreateFontIndirect(&logFont);
 }
 
 }

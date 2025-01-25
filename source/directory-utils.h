@@ -27,7 +27,7 @@ public:
         return true;
     }
 
-    DirectoryNode(const std::wstring_view name = TEXT("/"), DirectoryNode* parent = nullptr)
+    DirectoryNode(const std::wstring_view name = L"/", DirectoryNode* parent = nullptr)
         : m_name{ name }
         , m_parent{ parent }
     {}
@@ -197,7 +197,7 @@ private:
                 m_name.pop_back();
                 return false;
             }
-            m_name += TEXT("\\") + node.m_name;
+            m_name += L"\\" + node.m_name;
 
             auto newChildren{ node.m_children };
             m_children = std::move(newChildren);
@@ -236,9 +236,9 @@ private:
     Rect m_longestChildSize{};
 
     // Fixes
-    // D:\OBS
-    // D:\OBS\ttv-yt
-    // Being flattened into D:\OBS\ttv-yt
+    // C:\Users
+    // C:\Users\user\Downloads
+    // Being flattened into C:\Users\user\Downloads
     static const char explicitPathEnding{ L'|' };
 };
 

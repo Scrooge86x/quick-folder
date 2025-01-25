@@ -11,7 +11,7 @@
 #include <winnt.h>
 
 static inline int exitMessage(const std::wstring_view message) {
-    ::MessageBox(NULL, message.data(), TEXT("Error."), MB_OK | MB_ICONERROR);
+    ::MessageBoxW(NULL, message.data(), L"Error.", MB_OK | MB_ICONERROR);
     return -1;
 }
 
@@ -23,11 +23,11 @@ int main() {
 
     DirectoryNode root{};
     if (!root.readFromString(fileContents))
-        return exitMessage(TEXT("Loading config failed."));
+        return exitMessage(L"Loading config failed.");
 
     DirectoryNavigator navigator{ &root };
 
-    DirectorySelectWindow window{ TEXT("Quick Folder"), &navigator };
+    DirectorySelectWindow window{ L"Quick Folder", &navigator };
 
     win32::window::enableBackdropBlur(window.getSystemHandle());
     

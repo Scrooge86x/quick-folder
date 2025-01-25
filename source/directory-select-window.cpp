@@ -140,13 +140,13 @@ void DirectorySelectWindow::setupDirect2D() {
     );
 
     d2d.writeFactory->CreateTextFormat(
-        TEXT("Arial"),
+        L"Arial",
         NULL,
         DWRITE_FONT_WEIGHT_NORMAL,
         DWRITE_FONT_STYLE_NORMAL,
         DWRITE_FONT_STRETCH_NORMAL,
         m_styleConfig.fontSize,
-        TEXT("pl-PL"),
+        L"pl-PL",
         &d2d.textFormat
     );
     d2d.textFormat->SetWordWrapping(DWRITE_WORD_WRAPPING_NO_WRAP);
