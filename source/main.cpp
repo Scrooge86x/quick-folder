@@ -11,7 +11,7 @@
 #include <winnt.h>
 
 static inline int exitMessage(const std::wstring_view message) {
-    ::MessageBox(NULL, TEXT("Error."), message.data(), MB_OK | MB_ICONERROR);
+    ::MessageBox(NULL, message.data(), TEXT("Error."), MB_OK | MB_ICONERROR);
     return -1;
 }
 
