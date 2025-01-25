@@ -1,0 +1,17 @@
+C:\Users\testuser\Downloads
+D:\ai
+D:\OBS
+D:\OBS\ttv-yt
+D:\studia\android\*
+D:\studia\sygnały\*
+D:\studia\paradygmaty\*
+D:\studia\technologie-obiektowe\*
+D:\STEAM\steamapps\common
+E:\dev\javascript\*
+E:\dev\python\*
+E:\dev\java\*
+E:\dev\projects-to-sort\VS
+E:\dev\chrome-extensions\*
+E:\dev\sites\*
+E:\dev\cpp\*
+E:\dev\cpp\quick-folder\*
