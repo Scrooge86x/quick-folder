@@ -200,10 +200,14 @@ private:
     bool flattenPaths() noexcept {
         if (m_children.size() == 1) {
             auto& node{ m_children.begin()->second };
-            node.flattenPaths();
-            m_longestChildName = node.m_longestChildName;
-            m_longestChildSize = node.m_longestChildSize;
-
+            if (!node.m_name.ends_with(explicitPathEnding)) {
+                node.flattenPaths();
+                m_longestChildName = node.m_longestChildName;
+                m_longestChildSize = node.m_longestChildSize;
+            } else {
+                node.m_name.pop_back();
+            }
+            
             if (m_name.ends_with(explicitPathEnding)) {
                 m_name.pop_back();
                 return false;
