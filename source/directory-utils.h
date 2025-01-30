@@ -15,6 +15,8 @@ public:
             return false;
 
         m_children.clear();
+        m_longestChildName.clear();
+        m_longestChildSize = { 0.f, 0.f };
 
         std::size_t lineEnd{};
         while (lineEnd != std::wstring_view::npos) {
