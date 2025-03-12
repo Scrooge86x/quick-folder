@@ -204,8 +204,10 @@ private:
             auto& node{ m_children.begin()->second };
             if (!node.m_name.ends_with(explicitPathEnding)) {
                 node.flattenPaths();
-                m_longestChildName = node.m_longestChildName;
-                m_longestChildSize = node.m_longestChildSize;
+                if (!node.m_longestChildName.empty()) {
+                    m_longestChildName = node.m_longestChildName;
+                    m_longestChildSize = node.m_longestChildSize;
+                }
             } else {
                 node.m_name.pop_back();
             }
