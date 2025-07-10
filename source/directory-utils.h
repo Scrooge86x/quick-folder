@@ -174,7 +174,12 @@ private:
     }
 
     void insertPath(std::wstring_view path) noexcept {
-        std::wstring segment{};
+        const auto basePath{ path.ends_with('*')
+            ? path.substr(0, path.length() - 1)
+            : path
+        };
+        if (!std::filesystem::exists(basePath))
+            return;
 
         DirectoryNode* node{ this };
 
